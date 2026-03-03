@@ -10,17 +10,16 @@ on:
 
 jobs:
   build-macos-x64:
-    # macos-13 是 Intel (x86_64) 原生 runner，无需交叉编译
-    runs-on: macos-13
+    # macos-latest 是 Apple Silicon runner，通过 --target 交叉编译 x86_64
+    runs-on: macos-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Install Rust stable
-        uses: dtolnay/rust-action/setup@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: stable
           targets: x86_64-apple-darwin
 
       - name: Rust cache
