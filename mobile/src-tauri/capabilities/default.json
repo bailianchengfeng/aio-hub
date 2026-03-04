@@ -2,7 +2,9 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
   "description": "Capability for the main window",
-  "windows": ["main"],
+  "windows": [
+    "main"
+  ],
   "permissions": [
     "core:default",
     "opener:default",
@@ -17,12 +19,14 @@
     {
       "identifier": "http:allow-fetch",
       "allow": [
+        "http://*",
+        "https://*",
         "http://**",
         "https://**",
+        "ws://*",
+        "wss://*",
         "ws://**",
-        "wss://**",
-        "http://:ip(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):port(\\d+)?/**",
-        "https://:ip(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):port(\\d+)?/**"
+        "wss://**"
       ]
     },
     {
